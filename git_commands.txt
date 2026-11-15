@@ -1,0 +1,116 @@
+GIT COMMANDS USED IN THIS ASSIGNMENT
+
+--- Step 1: Local Repository Setup ---
+
+mkdir git-assignment
+Creates a new folder named git-assignment for the project.
+
+cd git-assignment
+Moves into the project folder.
+
+echo "<h1>Home Page</h1>" > index.html
+Creates index.html with a heading. The > symbol writes text into a new file.
+
+echo "<h1>About Page</h1>" > about.html
+Creates about.html with a heading.
+
+git init
+Initializes an empty Git repository in the current folder.
+
+git branch -M main
+Renames the current branch to main.
+
+ls -a
+Lists all files, including the hidden .git folder, to confirm the repository was created.
+
+--- Step 2: Git Workflow ---
+
+git add .
+Stages all files in the folder so they are included in the next commit.
+
+git commit -m "message"
+Saves the staged changes as a commit with a descriptive message.
+
+echo "<p>Welcome to my website</p>" >> index.html
+Appends a line to index.html without overwriting it. The >> symbol adds to the end of the file.
+
+git add index.html
+Stages only index.html for the next commit.
+
+git branch feature
+Creates a new branch named feature.
+
+git checkout feature
+Switches to the feature branch.
+
+git branch
+Lists all branches and marks the current one with a star.
+
+echo "<p>Contact: myemail@example.com</p>" >> about.html
+Appends a contact line to about.html while on the feature branch.
+
+git add about.html
+Stages about.html for the next commit.
+
+git checkout main
+Switches back to the main branch.
+
+git merge feature --no-ff -m "Merge feature branch into main"
+Merges the feature branch into main. --no-ff forces a merge commit so the branch activity is visible in history.
+
+git log --oneline --graph --all
+Displays the commit history of all branches in a short format with a graph showing branching and merging.
+
+--- Step 3: .gitignore ---
+
+echo "*.log" > .gitignore
+Creates .gitignore and adds a rule to ignore all .log files.
+
+echo "temp/" >> .gitignore
+Adds a rule to ignore the temp folder.
+
+cat .gitignore
+Prints the contents of .gitignore to confirm the rules.
+
+echo "test log entry" > debug.log
+Creates a test log file to check that it is ignored.
+
+mkdir temp
+Creates a temp folder to check that it is ignored.
+
+echo "temporary data" > temp/data.txt
+Creates a test file inside the temp folder.
+
+git status
+Shows the state of the working folder. The ignored files do not appear in the list.
+
+git add .gitignore
+Stages the .gitignore file for commit.
+
+--- Step 4: Undo Operation ---
+
+git log --oneline
+Shows the commit history in a short one-line format.
+
+git reset --hard HEAD~1
+Undoes the last commit and removes its changes from the files. HEAD~1 means one commit back.
+
+cat index.html
+Prints the file contents to confirm the undone change is gone.
+
+--- Step 5: GitHub Integration ---
+
+git remote add origin https://github.com/joelizer/git-assignment.git
+Links the local repository to the GitHub repository under the name origin.
+
+git remote -v
+Lists the remote connections to confirm the URL is correct.
+
+git remote set-url origin https://github.com/joelizer/git-assignment.git
+Corrects the URL of the origin remote.
+
+git push -u origin main
+Uploads the main branch to GitHub and sets it to track origin/main.
+
+git push origin feature
+Uploads the feature branch to GitHub.
